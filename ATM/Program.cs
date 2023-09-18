@@ -15,33 +15,24 @@
             Console.WriteLine("2. Withdraw");
             Console.WriteLine("3. Deposit");
             Console.WriteLine("4. Change pin");
-            Console.WriteLine("5. Help");
 
             int Choice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter pin");
 
-            if (Choice == 1)
+            int pinInput = Convert.ToInt32(Console.ReadLine());
+            if (pinInput != pin)
             {
-                Console.WriteLine("Enter pin to show balance...");
-
-                int pinInput = Convert.ToInt32(Console.ReadLine());
-
-                if (pinInput == pin)
-                {
-                    Console.WriteLine("Success!");
-                    Console.WriteLine("Your balance is: $" + balance);
-                    continue;
-                }
+                Console.WriteLine("Wrong pin!");
+                continue;
             }
 
-            else if (Choice == 2)
+            switch (Choice)
             {
-                Console.WriteLine("Enter pin to withdraw");
+                case 1:
+                    Console.WriteLine("Your balance is: $" + balance);
+                    break;
 
-                int pinInput = Convert.ToInt32(Console.ReadLine());
-
-                if (pinInput == pin)
-                {
-                    Console.WriteLine("Success!");
+                case 2:
                     Console.WriteLine("Your balance is: $" + balance);
                     Console.WriteLine("Enter amount to withdraw: ");
 
@@ -52,26 +43,15 @@
                         Console.WriteLine("Your withdrawal of $" + amountWithdraw + " was successfull");
                         balance -= amountWithdraw;
                         Console.WriteLine("Your balance is: $" + balance);
-                        continue;
                     }
 
                     else if (amountWithdraw > balance)
                     {
                         Console.WriteLine("Error, insufficient funds!");
-                        continue;
                     }
-                }
-            }
-
-            else if (Choice == 3)
-            {
-                Console.WriteLine("Enter pin to deposit");
-
-                int pinInput = Convert.ToInt32(Console.ReadLine());
-
-                if (pinInput == pin)
-                {
-                    Console.WriteLine("Success!");
+                    break;
+                
+                case 3:
                     Console.WriteLine("Your balance is: $" + balance);
                     Console.WriteLine("Enter amount to deposit: ");
 
@@ -79,18 +59,9 @@
 
                     balance += amountDeposit;
                     Console.WriteLine("Your balance is: $" + balance);
-                    continue;
-                }
-            }
-
-            else if (Choice == 4)
-            {
-                Console.WriteLine("Enter pin to continue...");
-
-                int pinInput = Convert.ToInt32(Console.ReadLine());
-
-                if (pinInput == pin)
-                {
+                    break;
+                
+                case 4:
                     Console.WriteLine("Success!");
                     Console.WriteLine("Enter new pin: ");
 
@@ -98,16 +69,12 @@
 
                     Console.WriteLine("Successfully changed pin to " + newPin + "!");
                     pin = newPin;
-                    continue;
-                }
-            }
+                    break;
 
-            else if (Choice == 5)
-            {
-                Console.WriteLine("Go ask yer mum");
-                continue;
+                default:
+                    Console.WriteLine("There was an error!");
+                    break;
             }
         }
-        
     }
 }
