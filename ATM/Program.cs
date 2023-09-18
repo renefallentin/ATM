@@ -14,7 +14,6 @@
             Console.WriteLine("1. Show Balance");
             Console.WriteLine("2. Withdraw");
             Console.WriteLine("3. Deposit");
-            Console.WriteLine("4. Change pin");
 
             int Choice = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter pin");
@@ -59,16 +58,6 @@
 
                     balance += amountDeposit;
                     Console.WriteLine("Your balance is: $" + balance);
-                    break;
-                
-                case 4:
-                    Console.WriteLine("Success!");
-                    Console.WriteLine("Enter new pin: ");
-
-                    int newPin = Convert.ToInt32(Console.ReadLine());
-
-                    Console.WriteLine("Successfully changed pin to " + newPin + "!");
-                    pin = newPin;
                     break;
 
                 default:
