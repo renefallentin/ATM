@@ -39,7 +39,7 @@
 
                     if (amountWithdraw < balance)
                     {
-                        Console.WriteLine("Your withdrawal of $" + amountWithdraw + " was successfull");
+                        Console.WriteLine("Your withdrawal of $" + amountWithdraw + " was successfull!");
                         balance -= amountWithdraw;
                         Console.WriteLine("Your balance is: $" + balance);
                     }
